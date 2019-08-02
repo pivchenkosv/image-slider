@@ -1,0 +1,51 @@
+.container {
+    margin: 20px;
+}
+
+.images-container {
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+    width: 600px;
+    display: flex;
+
+    &__small {
+        height: 100px;
+        width: 600px;
+        max-width: 600px;
+        overflow: hidden;
+        justify-content: left;
+    }
+}
+
+.image {
+    height: 400px;
+    width: 600px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.image-small {
+    margin: 10px;
+    height: 60px;
+    width: 90px;
+}
+
+.image-container {
+    position: relative;
+    display: flex;
+    transition: left 0.5s ease-in-out;
+}
+
+.left-button {
+    position: absolute;
+    width: 20%;
+    height: 100%;
+}
+.right-button {
+    position: absolute;
+    left: 80%;
+    width: 20%;
+    height: 100%;
+}
