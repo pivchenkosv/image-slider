@@ -1,14 +1,14 @@
 :root {
     --container-height: 400px;
     --container-width: 600px;
-    --container-width-mobile: 360px;
+    --container-width-mobile: 340px;
     --small-container-height: 100px;
-    --image-height-mobile: 240px;
-    --image-width-mobile: 360px;
+    --image-height-mobile: 220px;
+    --image-width-mobile: 340px;
 }
 
 .container {
-    margin: 20px;
+    margin: 10px;
 }
 
 .images-container {
@@ -17,9 +17,13 @@
     height: var(--container-height);
     width: var(--container-width);
     display: flex;
-    @media (max-width: 400px) {
+    @media (max-width: 420px) {
         height: 240px;
         width: 360px;
+    }
+    @media (max-width: 400px) {
+        height: 220px;
+        width: 340px;
     }
 
     &__small {
@@ -28,6 +32,10 @@
         max-width: var(--container-width);
         overflow: hidden;
         justify-content: left;
+        @media (max-width: 420px) {
+            height: 240px;
+            width: 360px;
+        }
         @media (max-width: 400px) {
             height: var(--small-container-height);
             width: var(--container-width-mobile);
@@ -41,6 +49,10 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    @media (max-width: 420px) {
+        height: 240px;
+        width: 360px;
+    }
     @media (max-width: 400px) {
         height: var(--image-height-mobile);
         width: var(--image-width-mobile);

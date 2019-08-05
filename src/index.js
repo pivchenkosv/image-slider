@@ -42,12 +42,13 @@ class ImageSlider extends React.Component {
     componentDidUpdate() {
         const imageContainer = document.getElementById('image-container')
         const imageContainerSmall = document.getElementById('image-container-small')
+        const imagesContainerSmall = document.getElementById('images-container-small')
         const { imageWidth, currentImage, slideImage } = this.state
         const { images } = this.props
 
         imageContainer.style.left = (-1 * imageWidth * (currentImage + slideImage)) + "px";
         if (600 < imageContainerSmall.offsetWidth)
-            imageContainerSmall.style.left = (currentImage + slideImage) / (images.length - 1) * (600 - imageContainerSmall.offsetWidth) + "px";
+            imageContainerSmall.style.left = (currentImage + slideImage) / (images.length - 1) * (imagesContainerSmall.offsetWidth - imageContainerSmall.offsetWidth) + "px";
     }
 
     onLeftClick = () => {
@@ -166,6 +167,7 @@ class ImageSlider extends React.Component {
                     </div>
                 </div>
                 <div
+                    id='images-container-small'
                     className='images-container images-container__small'
                 >
                     <div
