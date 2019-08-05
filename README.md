@@ -51,4 +51,4 @@ And use it in your React component
 ```
 ---
 
-## License  [![License](http://img.shields.io/:license-mit-blue.svg?style=flat)](https://github.com/pivchenkosv/image-slider/blob/master/licence.txt)
+## License  [![License](http://img.shields.io/:license-mit-blue.svg?style=flat)](https://github.com/pivchenkosv/image-slider/blob/master/LICENSE)
