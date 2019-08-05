@@ -1,4 +1,4 @@
-# Url shortener
+# Image slider
 
 > Image gallery component for your application.
 
@@ -29,12 +29,15 @@ It's also adopted for mobile devices.
 
 `npm install image-slider`
 
-### Clone
+---
+
+## Clone
 
 Clone this repo to your local machine using 
 
 `git clone https://github.com/pivchenkosv/image-slider.git`
 
+---
 ## Usage
 
 Import `ImageSlider` 
