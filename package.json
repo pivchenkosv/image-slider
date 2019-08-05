@@ -1,6 +1,6 @@
 {
-  "name": "stawesome-image-slider",
-  "version": "1.0.0",
+  "name": "image-slider-react",
+  "version": "1.0.1",
   "description": "Image gallery component for your application.",
   "main": "build/index.js",
   "scripts": {

@@ -27,7 +27,7 @@ It's also adopted for mobile devices.
 
 ## Installation
 
-`npm install image-slider`
+`npm install image-slider-react`
 
 ---
 
@@ -42,7 +42,7 @@ Clone this repo to your local machine using
 
 Import `ImageSlider` 
 ```js
-import ImageSlider from "image-slider";
+import ImageSlider from "image-slider-react";
 ```
 And use it in your React component
 ```js
