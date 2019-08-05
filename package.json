@@ -1,7 +1,7 @@
 {
   "name": "image-slider",
   "version": "1.0.0",
-  "description": "",
+  "description": "Image gallery component for your application.",
   "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
@@ -11,7 +11,7 @@
   "peerDependencies": {
     "react": "^16.4.0"
   },
-  "author": "",
+  "author": "stawesome",
   "license": "MIT",
   "dependencies": {
     "prop-types": "^15.7.2",
