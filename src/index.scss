@@ -1,3 +1,12 @@
+:root {
+    --container-height: 400px;
+    --container-width: 600px;
+    --container-width-mobile: 360px;
+    --small-container-height: 100px;
+    --image-height-mobile: 240px;
+    --image-width-mobile: 360px;
+}
+
 .container {
     margin: 20px;
 }
@@ -5,36 +14,52 @@
 .images-container {
     position: relative;
     overflow: hidden;
-    height: 400px;
-    width: 600px;
+    height: var(--container-height);
+    width: var(--container-width);
     display: flex;
+    @media (max-width: 400px) {
+        height: 240px;
+        width: 360px;
+    }
 
     &__small {
-        height: 100px;
-        width: 600px;
-        max-width: 600px;
+        height: var(--small-container-height);
+        width: var(--container-width);
+        max-width: var(--container-width);
         overflow: hidden;
         justify-content: left;
+        @media (max-width: 400px) {
+            height: var(--small-container-height);
+            width: var(--container-width-mobile);
+        }
     }
 }
 
 .image {
-    height: 400px;
-    width: 600px;
+    height: var(--container-height);
+    width: var(--container-width);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    @media (max-width: 400px) {
+        height: var(--image-height-mobile);
+        width: var(--image-width-mobile);
+    }
 }
 
 .image-small {
     margin: 10px;
     height: 60px;
     width: 90px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .image-container {
     position: relative;
     display: flex;
+    touch-action: none;
     transition: left 0.5s ease-in-out;
 }
 

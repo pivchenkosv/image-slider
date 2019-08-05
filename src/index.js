@@ -9,25 +9,45 @@ class ImageSlider extends React.Component {
         currentImage: 0,
         imageWidth: 0,
         smallImageWidth: 0,
+        xDown: null,
+        slideImage: 0,
+    }
+
+    constructor(props) {
+        super(props)
+
+        const declaration = document.styleSheets[0].rules[0].style;
+
+        this.props.height &&
+        declaration.setProperty('--container-height', this.props.height);
+
+        this.props.width &&
+        declaration.setProperty('--container-width', this.props.width);
     }
 
     componentDidMount() {
         const image = document.getElementById('image-container')
         const imageSmall = document.getElementById('image-container-small')
+        const { images } = this.props
+        const { imageWidth, currentImage } = this.state
+
         this.setState({
-            imageWidth: image.offsetWidth / this.props.images.length,
-            smallImageWidth: imageSmall.offsetWidth / this.props.images.length
+            imageWidth: image.offsetWidth / images.length,
+            smallImageWidth: imageSmall.offsetWidth / images.length
         }, () => {
-            image.style.left = (-1 * this.state.imageWidth * this.state.currentImage) + "px";
+            image.style.left = (-1 * imageWidth * currentImage) + "px";
         })
     }
 
     componentDidUpdate() {
         const imageContainer = document.getElementById('image-container')
         const imageContainerSmall = document.getElementById('image-container-small')
-        imageContainer.style.left = (-1 * this.state.imageWidth * this.state.currentImage) + "px";
+        const { imageWidth, currentImage, slideImage } = this.state
+        const { images } = this.props
+
+        imageContainer.style.left = (-1 * imageWidth * (currentImage + slideImage)) + "px";
         if (600 < imageContainerSmall.offsetWidth)
-            imageContainerSmall.style.left = this.state.currentImage / (this.props.images.length - 1) * (600 - imageContainerSmall.offsetWidth) + "px";
+            imageContainerSmall.style.left = (currentImage + slideImage) / (images.length - 1) * (600 - imageContainerSmall.offsetWidth) + "px";
     }
 
     onLeftClick = () => {
@@ -50,19 +70,59 @@ class ImageSlider extends React.Component {
 
     handleMouseDown = (e) => {
         e.preventDefault()
-        console.log('mouseDown')
+
+        const clientX = e.clientX || e.touches[0].clientX
+        let image = document.getElementById('image-container')
+
+        image.style.transition = 'none'
+        this.setState({
+            xDown: clientX
+        })
+
     }
 
     handleMouseUp = (e) => {
-        console.log('mouseUp')
+        e.preventDefault()
+        const { currentImage, slideImage } = this.state
+        const { images } = this.props
+        let image = document.getElementById('image-container')
+
+        image.style.transition = 'left 0.5s ease-in-out';
+
+        if (this.state.slideImage > 0.4 && currentImage + 1 < images.length) {
+            this.setState({
+                currentImage: currentImage + 1,
+                slideImage: 0
+            })
+        } else if (slideImage < -0.4 && currentImage > 0) {
+            this.setState({
+                currentImage: currentImage - 1,
+                slideImage: 0
+            })
+        } else {
+            this.setState({
+                slideImage: 0
+            })
+        }
+
+        this.setState({
+            xDown: null
+        })
     }
 
     handleMouseMove = (e) => {
         e.preventDefault()
-        console.log('mouseMove')
+        const clientX = e.clientX || e.touches[0].clientX
+
+        if (this.state.xDown) {
+            this.setState({
+                slideImage: (this.state.xDown - clientX) / this.state.imageWidth
+            })
+        }
     }
+
     render() {
-        const {width, height, isMobile, images} = this.props;
+        const {images} = this.props;
         return (
             <div
                 className='container'
@@ -75,7 +135,12 @@ class ImageSlider extends React.Component {
                         className="image-container"
                         onMouseDown={event => this.handleMouseDown(event)}
                         onMouseMove={event => this.handleMouseMove(event)}
-                        onMouseUp={() => this.handleMouseUp()}
+                        onMouseUp={event => this.handleMouseUp(event)}
+                        onMouseLeave={event => this.handleMouseUp(event)}
+                        onTouchStart={event => this.handleMouseDown(event)}
+                        onTouchMove={event => this.handleMouseMove(event)}
+                        onTouchEnd={event => this.handleMouseUp(event)}
+                        onTouchCancel={event => this.handleMouseUp(event)}
                     >
                         {
                             images.map((img, key) => {
@@ -110,11 +175,10 @@ class ImageSlider extends React.Component {
                         {
                             images.map((img, key) => {
                                 return (
-                                    <img
+                                    <div
                                         className="image-small"
                                         key={key}
-                                        src={img}
-                                        alt='image'
+                                        style={{backgroundImage: `url("${img}")`}}
                                         onClick={() => this.setCurrentImage(key)}
                                     />
                                 )
@@ -128,10 +192,9 @@ class ImageSlider extends React.Component {
 };
 
 ImageSlider.propTypes = {
-    images: PropTypes.array,
+    images: PropTypes.array.isRequired,
     width: PropTypes.string,
     height: PropTypes.string,
-    isMobile: PropTypes.bool,
 }
 
 export default ImageSlider;
