@@ -3,8 +3,9 @@
 > Image gallery component for your application.
 
 [![Build Status](https://travis-ci.org/pivchenkosv/image-slider.svg?branch=master)](https://travis-ci.org/pivchenkosv/image-slider)
-[![Demo](https://img.shields.io/badge/-Demo-blue)](https://jsfiddle.net/pivchenkosv/kneL0arm/68/)
-
+![GitHub issues](https://img.shields.io/github/issues/pivchenkosv/image-slider-react)
+![npm](https://img.shields.io/npm/dw/image-slider-react)
+[![Demo](https://img.shields.io/badge/-Demo-blue)](https://jsfiddle.net/pivchenkosv/kneL0arm/)
 ---
 
 ## Table of Contents
