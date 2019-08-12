@@ -16,12 +16,12 @@ class ImageSlider extends React.Component {
     constructor(props) {
         super(props)
 
-        const declaration = document.styleSheets[0].rules[0].style;
+        const declaration = document.styleSheets[0] ? document.styleSheets[0].rules[0].style : null;
 
-        this.props.height &&
+        this.props.height && declaration &&
         declaration.setProperty('--container-height', this.props.height);
 
-        this.props.width &&
+        this.props.width && declaration &&
         declaration.setProperty('--container-width', this.props.width);
     }
 
