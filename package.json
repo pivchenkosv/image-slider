@@ -1,6 +1,6 @@
 {
   "name": "image-slider-react",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Image gallery component for your application.",
   "main": "build/index.js",
   "scripts": {
