@@ -2,10 +2,11 @@
 
 > Image gallery component for your application.
 
-[![Build Status](https://travis-ci.org/pivchenkosv/image-slider.svg?branch=master)](https://travis-ci.org/pivchenkosv/image-slider)
-![GitHub issues](https://img.shields.io/github/issues/pivchenkosv/image-slider-react)
-![npm](https://img.shields.io/npm/dw/image-slider-react)
-[![Demo](https://img.shields.io/badge/-Demo-blue)](https://jsfiddle.net/pivchenkosv/kneL0arm/)
+[![Build Status](https://travis-ci.org/pivchenkosv/image-slider-react.svg?branch=master)](https://travis-ci.org/pivchenkosv/image-slider-react)
+[![GitHub issues](https://img.shields.io/github/issues/pivchenkosv/image-slider-react)](https://github.com/pivchenkosv/image-slider-react/issues)
+![npm](https://img.shields.io/npm/dt/image-slider-react)
+
+[![Edit image-slider-react](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/image-slider-react-cshbe?fontsize=14)
 ---
 
 ## Table of Contents

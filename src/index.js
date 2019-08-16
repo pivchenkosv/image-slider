@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './index.scss'
 
-class ImageSlider extends React.Component {
+export class ImageSlider extends React.Component {
 
     state = {
         currentImage: 0,
@@ -198,5 +198,3 @@ ImageSlider.propTypes = {
     width: PropTypes.string,
     height: PropTypes.string,
 }
-
-export default ImageSlider;
