@@ -1,6 +1,6 @@
 import React from 'react';
-import ImageSlider from '../index';
-import { configure, mount } from 'enzyme';
+import {ImageSlider} from '../index';
+import {configure, mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({adapter: new Adapter()});
@@ -17,5 +17,6 @@ const images = [
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  const component = mount(<ImageSlider images={images}/>, { attachTo: document.body });
+  const component = mount(<ImageSlider
+    images={images}/>, {attachTo: document.body});
 });
